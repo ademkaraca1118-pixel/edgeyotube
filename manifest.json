@@ -1,0 +1,32 @@
+{
+  "manifest_version": 3,
+  "name": "YouTube Subtitle TTS",
+  "version": "1.0.0",
+  "description": "YouTube videosundaki subtitle'ları zaman damgasına göre sesli okur",
+  "permissions": [
+    "scripting",
+    "activeTab",
+    "storage"
+  ],
+  "host_permissions": [
+    "https://www.youtube.com/*"
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "YouTube Subtitle TTS"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://www.youtube.com/*"],
+      "js": ["content-script.js", "utils.js"]
+    }
+  ],
+  "icons": {
+    "16": "images/icon-16.png",
+    "48": "images/icon-48.png",
+    "128": "images/icon-128.png"
+  }
+}
